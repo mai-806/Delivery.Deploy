@@ -1,8 +1,28 @@
+---
 version: '3'
+networks: 
+  rmoff:
+    name: rmoff
+    driver: bridge
 services:
-  nextjs:
-    build: ./
+  front:
+     container_name: front
+     build:
+      dockerfile: Dockerfile
+      context: ./Delivery.Front
+     networks: 
+      - rmoff
+     ports:
+      - "3000:3000"
   nginx:
-    build: ./nginx
+    container_name: nginx_serv
+    depends_on:
+      - front
+    networks: 
+      - rmoff
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
     ports:
-      - 80:80
+      - "80:80"
