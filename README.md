@@ -1,12 +1,13 @@
 # Delivery.Deploy
 1. Установить docker desktop
-2. Скопировать в Front файлы отсюда  
-3. Сделать зависимости
 ```
-npm install next react react-dom  
+git clone https://github.com/mai-806/Delivery.Front.git
+```
+```
+git clone https://github.com/mai-806/Delivery.Deploy.git
 ```
 4. Запустить docker compose  
 ```
 docker compose up  
 ```
-5. Сайт на localhost:80  
+5. Сайт на localhost:80 
