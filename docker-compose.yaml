@@ -9,7 +9,7 @@ services:
      container_name: front
      build:
       dockerfile: Dockerfile
-      context: ./Delivery.Front
+      context: ../Delivery.Front
      networks: 
       - rmoff
      ports:
@@ -26,3 +26,13 @@ services:
       context: ./nginx
     ports:
       - "80:80"
+  clickhouse:
+    image: yandex/clickhouse-server
+    networks: 
+      - rmoff
+    volumes:
+      - ./opt/clickhouse/etc/users.xml:/etc/clickhouse-server/users.xml
+      - ./opt/clickhouse/etc/config.xml:/etc/clickhouse-server/config.xml
+    ports:
+      - "9000:9000"
+      - "8123:8123"
