@@ -41,7 +41,7 @@ services:
      container_name: front
      build:
       dockerfile: Dockerfile
-      context: ./Delivery.Front
+      context: ../Delivery.Front
      networks: 
       - rmoff
      ports:
