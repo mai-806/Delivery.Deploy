@@ -9,7 +9,7 @@ services:
     image: confluentinc/cp-zookeeper:7.3.0
     container_name: zookeeper
     networks: 
-      - rmoff_kafka
+      - rmoff
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -18,7 +18,7 @@ services:
     image: wurstmeister/kafka
     container_name: broker
     networks: 
-      - rmoff_kafka
+      - rmoff
     ports:
       - "9092:9092"
     depends_on:
