@@ -38,26 +38,22 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
       KAFKA_CREATE_TOPICS: "sendMessage:1:1,recieveMessage:1:1"
   front:
+     image: lantum1/front_mai
      container_name: front
-     build:
-      dockerfile: Dockerfile
-      context: ../Delivery.Front
      networks: 
       - rmoff
      ports:
       - "3000:3000"
   nginx:
     container_name: nginx_serv
+    image: lantum1/front_mai
     depends_on:
       - front
     networks: 
       - rmoff
     restart: always
-    build:
-      dockerfile: Dockerfile
-      context: ./nginx
     ports:
-      - "80:80"
+      - "80:3000"
   clickhouse:
     image: yandex/clickhouse-server
     networks: 
