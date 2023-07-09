@@ -64,3 +64,9 @@ services:
     ports:
       - "9000:9000"
       - "8123:8123"
+  go:
+    build:
+      dockerfile: Dockerfile.algo
+      context: ../DeliveryGraph-main
+    ports:
+      - "8080:8080"
