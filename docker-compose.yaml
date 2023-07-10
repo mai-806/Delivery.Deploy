@@ -2,7 +2,6 @@
 version: '3'
 networks: 
   rmoff:
-    name: rmoff
     driver: bridge
 services:
   zookeeper:
@@ -13,7 +12,6 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
-
   broker:
     image: wurstmeister/kafka
     container_name: broker
@@ -46,16 +44,17 @@ services:
       - "3000:3000"
   nginx:
     container_name: nginx_serv
-    image: lantum1/front_mai
+    image: lantum1/nginx_mai
     depends_on:
       - front
     networks: 
       - rmoff
     restart: always
     ports:
-      - "80:3000"
+      - "80:80"
   clickhouse:
     image: yandex/clickhouse-server
+    container_name: clickhouse
     networks: 
       - rmoff
     volumes:
@@ -64,9 +63,10 @@ services:
     ports:
       - "9000:9000"
       - "8123:8123"
-  go:
-    build:
-      dockerfile: Dockerfile.algo
-      context: ../DeliveryGraph-main
+  graph:
+    image: lantum1/graph_mai
+    container_name: graph
+    networks: 
+      - rmoff
     ports:
       - "8080:8080"
