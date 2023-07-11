@@ -27,6 +27,7 @@ spec:
       containers:
         - image: lantum1/nginx_mai
           name: nginx-serv
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 80
           resources: {}
