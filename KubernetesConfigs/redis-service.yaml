@@ -6,15 +6,15 @@ metadata:
     kompose.version: 1.28.0 (c4137012e)
   creationTimestamp: null
   labels:
-    io.kompose.service: broker
-  name: broker
+    io.kompose.service: redis
+  name: redis
 spec:
   type: NodePort
   ports:
-    - name: "9092"
-      port: 9092
-      targetPort: 9092
+    - name: "6379"
+      port: 6379
+      targetPort: 6379
   selector:
-    io.kompose.service: broker
+    io.kompose.service: redis
 status:
   loadBalancer: {}

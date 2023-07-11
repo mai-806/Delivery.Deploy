@@ -9,6 +9,7 @@ metadata:
     io.kompose.service: graph
   name: graph
 spec:
+  type: NodePort
   ports:
     - name: "8080"
       port: 8080
