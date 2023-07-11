@@ -9,6 +9,7 @@ metadata:
     io.kompose.service: clickhouse
   name: clickhouse
 spec:
+  type: NodePort
   ports:
     - name: "9000"
       port: 9000
