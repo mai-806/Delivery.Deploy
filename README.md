@@ -1,13 +1,15 @@
 # Delivery.Deploy
-1. Установить docker desktop
+1. Склонировать репозиторий Delivery.Deploy
+2. Убедиться, что на компьютере установлены docker, docker-compose (для запуска докер-контейнеров через docker-compose.yaml) и minikube (для запуска докер контейнеров через Kubernetes)
+3. Запустить докер контейнеры через команду из склонированного репозитория:
 ```
-git clone https://github.com/mai-806/Delivery.Front.git
+sudo docker-compose up
 ```
+4. Запустить локальный сервер Kubernetes:
 ```
-git clone https://github.com/mai-806/Delivery.Deploy.git
+minikube start
 ```
-4. Запустить docker compose  
+5. Перейти в KubernetesConfigs, применить конфигурационные файлы Kubernetes для создания всех сервисов, подов:
 ```
-docker compose up  
+minikube kubectl -- apply -f .
 ```
-5. Сайт на localhost:80 
