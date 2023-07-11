@@ -54,6 +54,7 @@ spec:
               value: zookeeper:2181
           image: wurstmeister/kafka
           name: broker
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 9092
           resources: {}

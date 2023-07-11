@@ -28,6 +28,7 @@ spec:
       containers:
         - image: yandex/clickhouse-server
           name: clickhouse
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 9000
             - containerPort: 8123

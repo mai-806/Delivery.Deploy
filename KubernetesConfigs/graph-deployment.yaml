@@ -27,6 +27,7 @@ spec:
       containers:
         - image: lantum1/graph_mai
           name: graph
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 8080
           resources: {}

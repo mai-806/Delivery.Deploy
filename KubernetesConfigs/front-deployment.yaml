@@ -27,6 +27,7 @@ spec:
       containers:
         - image: lantum1/front_mai
           name: front
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 3000
           resources: {}
