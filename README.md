@@ -1,8 +1,5 @@
 # Delivery.Deploy
-1. Установить docker desktop
-```
-git clone https://github.com/mai-806/Delivery.Front.git
-```
+1. Установить docker desktop или sudo apt install docker.
 ```
 git clone https://github.com/mai-806/Delivery.Deploy.git
 ```
